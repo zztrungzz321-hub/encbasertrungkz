@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Trang mã hóa mã Python hiện đại, chuyên nghiệp và có thể chạy miễn phí trên GitHub Pages 24/24."
+    />
+    <title>TrungKZ | Python Encoder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="petals" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <main class="container">
+      <section class="hero">
+        <p class="badge">Free • GitHub Pages • 24/24</p>
+        <h1>TrungKZ</h1>
+        <p class="subtitle">
+          Một công cụ mã hóa và bảo vệ mã nguồn Python theo phong cách hiện đại, sạch đẹp và dễ dùng cho demo web.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="toolbar">
+          <h2>Nhập mã Python</h2>
+          <div class="actions">
+            <button id="encodeBtn">Mã hóa</button>
+            <button id="copyBtn" class="secondary">Sao chép</button>
+            <button id="clearBtn" class="ghost">Xóa</button>
+          </div>
+        </div>
+        <textarea id="sourceInput" spellcheck="false" placeholder="Nhập mã Python vào đây..."></textarea>
+      </section>
+
+      <section class="card">
+        <div class="toolbar">
+          <h2>Kết quả</h2>
+          <div class="actions">
+            <button id="downloadBtn" class="secondary">Tải .py</button>
+          </div>
+        </div>
+        <textarea id="output" spellcheck="false" readonly placeholder="Kết quả sẽ xuất hiện ở đây..."></textarea>
+      </section>
+
+      <section class="card info">
+        <h3>Cách hoạt động</h3>
+        <ul>
+          <li>Chuyển mã nguồn sang chuỗi base64.</li>
+          <li>Áp dụng XOR với khóa cố định để che dấu.</li>
+          <li>Tạo một script Python tự giải mã và chạy lại nội dung gốc.</li>
+        </ul>
+        <p>
+          Đây là một mẫu hiện đại, phù hợp để demo trên GitHub Pages mà không cần backend.
+        </p>
+      </section>
+
+      <footer class="footer">Thiết kế và phát triển bởi TrungKZ</footer>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
