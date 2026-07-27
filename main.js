@@ -21,7 +21,8 @@ function toUtf8Hex(text) {
 
 function enc(text) {
   const noisy = toUtf8Hex(text);
-  return noisy.split('').map((char) => encodeMap[char] ?? char).join('');
+  const mapped = noisy.split('').map((char) => encodeMap[char] ?? char).join('');
+  return `shenron("${escapeForPython(mapped)}")`;
 }
 
 function shenron(value) {
@@ -41,8 +42,8 @@ function encodeSource() {
     return;
   }
 
-  const payload = enc(source);
-  const wrapped = `import base64\n\nstring = "${baseAlphabet}"\ncust = ${JSON.stringify(customSymbols)}\ne = dict(zip(string, cust))\nd = {v: k for k, v in e.items()}\n\ndef shenron(s):\n    noisy = ''.join(d.get(c, c) for c in s)\n    return bytes.fromhex(noisy).decode('utf-8')\n\npayload = "${escapeForPython(payload)}"\nsource = shenron(payload)\nexec(source)\n`;
+  const payloadExpr = enc(source);
+  const wrapped = `string = "${baseAlphabet}"\ncust = ${JSON.stringify(customSymbols)}\ne = dict(zip(string, cust))\nd = {v: k for k, v in e.items()}\n\ndef shenron(s):\n    noisy = ''.join(d.get(c, c) for c in s)\n    return bytes.fromhex(noisy).decode('utf-8')\n\nexec(${payloadExpr})\n`;
 
   output.value = wrapped;
 }
